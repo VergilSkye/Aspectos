@@ -22,6 +22,9 @@ public class AspectApplication {
 	}
 
 	private static void printaAlgoLegal() {
+		log.debug("\n----------------------------------------------------------\n\t" +
+				"Application '{}' is running! Access URLs:\n\t" +
+				"Local: \t\thttp://localhost:8080\n\t" );
 		log.info("\n----------------------------------------------------------\n\t" +
 				"Application '{}' is running! Access URLs:\n\t" +
 				"Local: \t\thttp://localhost:8080\n\t" );
