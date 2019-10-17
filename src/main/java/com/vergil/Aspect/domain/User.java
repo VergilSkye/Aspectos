@@ -97,6 +97,19 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public Set<Account> getAccounts() { return accounts;  }
+
+    public void setAccounts(Set<Account> accounts) { this.accounts = accounts; }
+    
+    public void addAccount(Account account){
+        this.accounts.add(account);
+        account.setUser(this);
+    }
+    public void removeAccount(Account account){
+        this.accounts.remove(account);
+        account.setUser(null);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
