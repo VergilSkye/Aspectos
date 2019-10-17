@@ -14,7 +14,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(){
-        log.debug("ENtrou nessa porra");
         EmployeeManager em = new EmployeeManager();
         em.getEmployeeById(1);
         return "Hello World!";

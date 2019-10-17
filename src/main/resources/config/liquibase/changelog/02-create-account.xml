@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+
+     <!--
+        Added the entity Account.
+    -->
+    <changeSet id="02" author="vergil">
+        <createTable tableName="accounts" remarks="A table to contain all accounts">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints nullable="false" unique="true" primaryKey="true" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(60)">
+                <constraints nullable="true" />
+            </column>
+            <column name="balance" type="double">
+                <constraints nullable="true" />
+            </column>
+
+        </createTable>
+        <addForeignKeyConstraint 
+            baseColumnNames="user_id" 
+            baseTableName="accounts" 
+            constraintName="fk_acc_user_id" 
+            referencedColumnNames="id" 
+            referencedTableName="users" />
+        <loadData 
+              file="config/liquibase/data/2_accounts.csv" 
+              separator=";" 
+              tableName="accounts">
+            <column name="id" type="numeric" />
+            <column name="description" type="string" />
+            <column name="balance" type="numeric" />
+            
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
+
+
