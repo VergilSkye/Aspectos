@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <property name="now" value="now()" dbms="h2"/>
 
@@ -24,9 +22,12 @@
             <column name="account_id" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="type_transaction_id" type="bigint">
+            <!--<column name="type_transaction_id" type="bigint">
                 <constraints nullable="false" />
-            </column>            
+            </column> -->       
+            <column name="type" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>    
             <column name="amount" type="double">
                 <constraints nullable="false" />
             </column>
@@ -46,14 +47,14 @@
             referencedColumnNames="id" 
             referencedTableName="accounts" />
             
-         <addForeignKeyConstraint 
+    <!-- <addForeignKeyConstraint 
             baseColumnNames="type_transaction_id" 
             baseTableName="transactions" 
             constraintName="fk_type_trans_id" 
             referencedColumnNames="id" 
-            referencedTableName="type_transactions" />
+            referencedTableName="type_transactions" /> -->
 
-        <!-- <loadData 
+    <!-- <loadData 
               file="config/liquibase/data/2_accounts.csv" 
               separator=";" 
               tableName="accounts">
