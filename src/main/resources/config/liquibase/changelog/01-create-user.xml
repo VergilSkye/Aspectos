@@ -23,7 +23,7 @@
                 <constraints nullable="false" />
             </column>
             <column name="login" type="varchar(50)">
-                <constraints nullable="false" />
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="password" type="varchar(60)">
                 <constraints nullable="false" />
@@ -31,8 +31,9 @@
             <column name="email" type="varchar(191)">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_email" />
             </column>
+            <column name="fone" type="varchar(15)"></column>
             <column name="created_date" type="timestamp" />
-            <column name="fone" type="varchar(10)"></column>
+        
         </createTable>
 
         <loadData file="config/liquibase/data/1_users.csv" separator=";" tableName="users">

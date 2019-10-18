@@ -1,11 +1,15 @@
 package com.vergil.Aspect.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -15,7 +19,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -43,12 +47,23 @@ public class User implements Serializable {
     @Size(min = 5, max = 191)
     @Column(length = 191, unique = true, nullable = true)
     private String email;
-    
+
+
+    @Column(name = "fone", length = 15)
+    private String fone;
+
+    @CreatedDate
+    @Column(name = "created_date", updatable = false)
+    @JsonIgnore
+    private Instant createdDate = Instant.now();
+
     @OneToMany(targetEntity = Account.class, mappedBy = "user")
     @OrderBy("description ASC ")
     private Set<Account> accounts = new HashSet<Account>();
-    
-    public User(){}
+
+
+    public User() {
+    }
 
     public User(@NotNull @Size(max = 255) String name, @NotNull @Pattern(regexp = "^[_.@A-Za-z0-9-]*$") @Size(min = 1, max = 50) String login, @NotNull String password, @Email @Size(min = 5, max = 191) String email) {
         this.name = name;
@@ -97,15 +112,28 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Set<Account> getAccounts() { return accounts;  }
+    public String getFone() { return fone; }
+
+    public void setFone(String fone) { this.fone = fone; }
+
+    public Instant getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Set<Account> getAccounts() { return accounts; }
 
     public void setAccounts(Set<Account> accounts) { this.accounts = accounts; }
-    
-    public void addAccount(Account account){
+
+    public void addAccount(Account account) {
         this.accounts.add(account);
         account.setUser(this);
     }
-    public void removeAccount(Account account){
+
+    public void removeAccount(Account account) {
         this.accounts.remove(account);
         account.setUser(null);
     }
@@ -132,6 +160,7 @@ public class User implements Serializable {
             ", login='" + login + '\'' +
             ", password='" + password + '\'' +
             ", email='" + email + '\'' +
+            ", fone='" + fone + '\'' +
             '}';
     }
 }
