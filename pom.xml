@@ -85,6 +85,14 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 		</dependency>
+        
+        <!--ERRORS -->
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-web</artifactId>
+            <version>0.25.0</version>
+        </dependency>
+       
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

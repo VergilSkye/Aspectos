@@ -43,7 +43,7 @@ public class LoggingAspect {
      */
     @Pointcut("within(com.vergil.Aspect.repository..*)" +
             " || within(com.vergil.Aspect.service..*)" +
-            " || within(com.vergil.Aspect.controllers..*)")
+            " || within(com.vergil.Aspect.web.rest..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }
