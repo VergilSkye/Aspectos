@@ -19,6 +19,6 @@ Página com as transações de um usuário
 ## [/account](https://aspectos.herokuapp.com/contas)
 Página com todas as contas
 
-## [/accounts/{id}] (https://aspectos.herokuapp.com/accounts/1)
+## [/accounts/{id}](https://aspectos.herokuapp.com/accounts/1)
 Página com uma conta baseado em seu id
 
