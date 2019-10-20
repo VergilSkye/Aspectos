@@ -27,7 +27,7 @@ public class Transaction implements Serializable {
     private Double amount;
 
     @Column(name="description")
-    private Double description;
+    private String description;
 
     @CreatedDate
     @Column(name = "created_date", updatable = false)
@@ -50,7 +50,7 @@ public class Transaction implements Serializable {
     public Transaction() {
     }
 
-    public Transaction(TransactionType type, Double amount, Double description, Instant createdDate, Instant endDate, Boolean wasEnded, Account account) {
+    public Transaction(TransactionType type, Double amount, String description, Instant createdDate, Instant endDate, Boolean wasEnded, Account account) {
         this.type = type;
         this.amount = amount;
         this.description = description;
@@ -84,11 +84,11 @@ public class Transaction implements Serializable {
         this.amount = amount;
     }
 
-    public Double getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Double description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
