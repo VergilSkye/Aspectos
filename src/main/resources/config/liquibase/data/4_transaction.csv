@@ -1,0 +1,7 @@
+id;account_id;type;amount;created_date;end_date;was_ended;description
+1;1;"DEBIT";120;2019-10-20T01:41:44;2019-10-20T01:41:44;true;Recebendo
+2;1;"CREDIT";20;2019-10-20T01:41:44;2019-10-20T02:41:44;true;Pagando
+3;4;"DEBIT";100;2019-10-20T01:41:44;2019-10-20T01:41:44;true;Recebendo
+4;4;"DEBIT";100;2019-10-20T01:41:44;2019-10-20T01:41:44;true;Pagemento atrasado
+5;5;"DEBIT";100;2019-10-20T01:41:44;2019-10-20T01:41:44;true;Jogo do bixo
+6;5;"CREDIT";50;2019-10-20T01:41:44;2019-10-20T02:41:44;true;Dividas

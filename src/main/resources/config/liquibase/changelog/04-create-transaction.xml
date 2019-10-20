@@ -46,23 +46,20 @@
             constraintName="fk_acc_trans_id" 
             referencedColumnNames="id" 
             referencedTableName="accounts" />
-            
-    <!-- <addForeignKeyConstraint 
-            baseColumnNames="type_transaction_id" 
-            baseTableName="transactions" 
-            constraintName="fk_type_trans_id" 
-            referencedColumnNames="id" 
-            referencedTableName="type_transactions" /> -->
 
-    <!-- <loadData 
-              file="config/liquibase/data/2_accounts.csv" 
+
+        <loadData 
+              file="config/liquibase/data/4_transaction.csv" 
               separator=";" 
-              tableName="accounts">
+              tableName="transactions">
             <column name="id" type="numeric" />
-            <column name="descricao" type="string" />
-            <column name="saldo" type="numeric" />
-            
-        </loadData>-->
+            <column name="type" type="string" />
+            <column name="amount" type="numeric" />
+            <column name="created_date" type="date" />
+            <column name="end_date" type="date" />
+            <column name="was_ended" type="boolean" />
+            <column name="description" type="string" />
+        </loadData>
     </changeSet>
 
 </databaseChangeLog>
