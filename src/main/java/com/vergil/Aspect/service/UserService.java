@@ -30,7 +30,6 @@ public class UserService {
         if (form.getId() != null) {
             throw new BadRequestAlertException("A new user cannot already have an ID", null, "idexists");
         }
-
         userRepository.findByLogin(form.getLogin()).ifPresent(old_user -> {
             throw new LoginAlreadyUsedException();
         });
@@ -38,10 +37,10 @@ public class UserService {
             throw new EmailAlreadyUsedException();
         });
 
-        // String encryptedPassword = passwordEncoder.encode(password);
+     
         User user = convertFormToUser(form);
-        User newUser = userRepository.save(user);
-        return newUser;
+        return userRepository.save(user);
+        
     }
 
     public User atualizar(FormUsuarioDTO form) {
@@ -63,27 +62,23 @@ public class UserService {
             user.setName(form.getNome());
             user.setEmail(form.getEmail());
             user.setFone(form.getFone());
-            User updatedUser = userRepository.save(user);
-            return updatedUser;
+            return userRepository.save(user);
             
         } else {
             throw new EntityNotFoundException();
-        }     
-       
-
-        
+        }           
     }
     
     
     User convertFormToUser(FormUsuarioDTO formUsuarioDTO){
         User user = new User();
+        user.setId(formUsuarioDTO.getId());
         user.setLogin(formUsuarioDTO.getLogin());
         user.setPassword(formUsuarioDTO.getSenha());
         user.setName(formUsuarioDTO.getNome());
         user.setEmail(formUsuarioDTO.getEmail());
         user.setFone(formUsuarioDTO.getFone());
-        return user;
-        
+        return user;        
     }
 }
 
