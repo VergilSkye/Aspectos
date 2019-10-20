@@ -1,6 +1,6 @@
 id;user_id;description;balance
 1;1;Conta pessoal;100.0
 2;1;Conta Empresarial;0.0
-3;2;Conta Pessoal;
+3;2;Conta Pessoal;1.0
 4;3;Conta Pessoal;200.0
 5;3;"";50.0
