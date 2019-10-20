@@ -8,6 +8,5 @@
 
     <include file="changelog/01-create-user.xml" relativeToChangelogFile="true"/>
     <include file="changelog/02-create-account.xml" relativeToChangelogFile="true"/>
-<!--<include file="changelog/03-create-type-transaction.xml" relativeToChangelogFile="true"/>-->
     <include file="changelog/04-create-transaction.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
