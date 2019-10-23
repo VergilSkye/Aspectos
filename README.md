@@ -48,7 +48,7 @@ Página teste para criar uma nova conta para o usuário teste
 ## [/test/attAcc](https://aspectos.herokuapp.com/test/attAcc)
 Página teste para atualizar uma conta do usuário teste
 
-## [/test/deleteAcc](https://aspectos.herokuapp.com/test/deleteUser)
+## [/test/deleteAcc](https://aspectos.herokuapp.com/test/deleteAcc)
 Página teste para deletar uma conta do usuário teste
 
 ## ETC
